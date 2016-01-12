@@ -1,0 +1,19 @@
+[user]
+	name = pedrogedion7
+	email = infiniti.kitso@gmail.com
+
+[core]
+	editor = nvim
+[color]
+	ui = true
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
+[merge]
+tool = threesome
+
+[mergetool "threesome"]
+cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+trustExitCode = true
+
