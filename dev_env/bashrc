@@ -1,12 +1,13 @@
 # virtualenv and virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/var/mypython/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/var/mypython/bin/virtualenv
+export VIRTUALENVWRAPPER_PYTHON=/var/mypy2/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/var/mypy2/bin/virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-source /var/mypython/bin/virtualenvwrapper.sh
-
-if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+source /var/mypy2/bin/virtualenvwrapper.sh
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 fi
-
-
-
+export PYTHONPATH=~/.pythonrc.py
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

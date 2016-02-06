@@ -20,7 +20,7 @@ syntax on
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
-
+let g:python_host_prog='/usr/bin/python2.7'
 " Put these in an autocmd group, so that we can delete them easily.
 augroup.vimrcEx
   autocmd!
@@ -76,7 +76,8 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'csexton/snipmate.vim'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'rdnetto/YCM-Generator'
 " plugin from http:/.vim-scripts.org.vim/scripts.html
 "Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -162,7 +163,7 @@ imap <leader>' ''<ESC>i
 imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
-
+imap <leader>{ {}<ESC>i
 " new line above or below and get out of insert mode
 
 nmap g<C-o> o<ESC>k

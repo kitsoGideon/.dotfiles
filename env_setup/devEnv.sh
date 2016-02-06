@@ -1,8 +1,4 @@
 #! /bin/bash
 
-mkdir .gitClones
-wget -o- https://toolbelt.heroku.com/install.sh | sh
-apt-get install git curl python-pip zsh
-\curl -sSL https://get.rvm.io | bash
-wget --no-check-certificate http://instal.ohmyz.sh -O - | sh
-
+apt-get install git curl zsh xclip
+wget --no-check-certificate http://install.ohmyz.sh -O - | sh
