@@ -76,6 +76,15 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'csexton/snipmate.vim'
+
+" webdev stuff
+Plugin 'itchyny/lightline.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'skammer/vim-css-color'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'rstacruz/sparkup'
+Plugin 'shemerey/vim-peepopen'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'rdnetto/YCM-Generator'
 " plugin from http:/.vim-scripts.org.vim/scripts.html

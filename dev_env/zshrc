@@ -53,7 +53,7 @@ plugins=(git colored-man-pages zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/home/kitso/bin/c_source:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kitso/.rvm/bin"
+export PATH="/opt/java/jdk1.8.0_73/bin/:/home/kitso/bin/c_source:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kitso/.rvm/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 export PYTHONSTARTUP=~/.pythonrc.py
  #virtualenv and virtualenvwrapper

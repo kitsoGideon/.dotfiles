@@ -11,3 +11,23 @@ if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline
 fi
 export PYTHONPATH=~/.pythonrc.py
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Added by Canopy installer on 2016-02-07
+# VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make the bash prompt show that Canopy is active, otherwise 1
+alias activate_canopy="source '/home/kitso/Enthought/Canopy_64bit/User/bin/activate'"
+# VIRTUAL_ENV_DISABLE_PROMPT=1 source '/home/kitso/Enthought/Canopy_64bit/User/bin/activate'
+
+# added by Anaconda3 2.5.0 installer
+export PATH="/home/kitso/anaconda3/bin:$PA
+
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+		LESS_TERMCAP_md=$(printf "\e[1;31m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+			man "$@"
+}TH"

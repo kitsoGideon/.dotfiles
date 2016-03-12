@@ -16,6 +16,7 @@ add-apt-repository -y ppa:neovim-ppa/unstable
 add-apt-repository -y ppa:ubuntu-wine/ppa
 add-apt-repository -y ppa:git-core/ppa
 add-apt-repository -y ppa:ubuntu-toolchain-r/test
+add-apt-repository -y ppa:n-muench/burg
 # the google chrome repository
 wget -q -O- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
