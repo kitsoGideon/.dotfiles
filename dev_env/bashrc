@@ -18,7 +18,7 @@ alias activate_canopy="source '/home/kitso/Enthought/Canopy_64bit/User/bin/activ
 # VIRTUAL_ENV_DISABLE_PROMPT=1 source '/home/kitso/Enthought/Canopy_64bit/User/bin/activate'
 
 # added by Anaconda3 2.5.0 installer
-export PATH="/home/kitso/anaconda3/bin:$PA
+export PATH="/home/kitso/anaconda3/bin:$PATH"
 
 man() {
 	env \
@@ -30,4 +30,4 @@ man() {
 		LESS_TERMCAP_ue=$(printf "\e[0m") \
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
-}TH"
+}
