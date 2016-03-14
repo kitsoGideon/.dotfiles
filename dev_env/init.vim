@@ -54,37 +54,37 @@ filetype on                  " required
 
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.nvim/bundle/Vundle.vim
-call vundle#begin()
+"set rtp+=~/.nvim/bundle/Vundle.vim
+"call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-call vundle#begin('~/.nvim/bundle')
+"call vundle#begin('~/.nvim/bundle')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+"Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'sjl/threesome.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'csexton/snipmate.vim'
+"Plugin 'sjl/threesome.vim'
+"Plugin 'tpope/vim-fugitive'
+"Plugin 'bling/vim-airline'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'pangloss/vim-javascript'
+"Plugin 'easymotion/vim-easymotion'
+"Plugin 'othree/html5.vim'
+"Plugin 'hail2u/vim-css3-syntax'
+"Plugin 'justinmk/vim-syntax-extra'
+"Plugin 'csexton/snipmate.vim'
 
 " webdev stuff
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Plugin 'skammer/vim-css-color'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'rstacruz/sparkup'
-Plugin 'shemerey/vim-peepopen'
+"Plugin 'itchyny/lightline.vim'
+"Plugin 'tpope/vim-surround'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'skammer/vim-css-color'
+"Plugin 'tomtom/tcomment_vim'
+"Plugin 'rstacruz/sparkup'
+"Plugin 'shemerey/vim-peepopen'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'rdnetto/YCM-Generator'
 " plugin from http:/.vim-scripts.org.vim/scripts.html
@@ -99,8 +99,50 @@ Plugin 'shemerey/vim-peepopen'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+"Required
+set runtimepath^=~/.nvim/bundle/neobundle.vim/
+
+" Required
+call neobundle#begin(expand('~/.nvim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+NeoBundle 'bling/vim-airline'
+NeoBundle 'sjl/threesome.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'justinmk/vim-syntax-extra'
+NeoBundle 'csexton/snipmate.vim'
+
+" webdev stuff
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'skammer/vim-css-color'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'rstacruz/sparkup'
+NeoBundle 'shemerey/vim-peepopen'
+"NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'rdnetto/YCM-Generator'
+
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
+
+
+
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
