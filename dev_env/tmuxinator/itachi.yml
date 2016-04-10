@@ -36,11 +36,14 @@ windows:
         - # zsh
         - bash
   - hacks:
-  - cssCanvas: 
+  - cssCanvas:
       layout: main-vertical
       panes:
         - cd static/css # scss
         - cd static/css # css
   - htmlCanvas: cd templates
   - rails:
-  - fileManager: mc
+  - fileManager:
+      - cd /home/kitso/LIBRARY/koding/python
+      - mc
+

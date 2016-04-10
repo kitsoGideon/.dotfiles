@@ -29,17 +29,17 @@ root: ~/bin/c_source
 
 windows:
   - canvas:
-      layout: main-horizontal
+      layout: main-vertical
       panes:
         - # vim somefile
         - # zsh
         - bash
   - tinker:
-      layout: main-horizontal
+      layout: main-vertical
       panes:
         - # vim somefile
         - zsh
         - bash
   - fileManager:
-        - cd ~/bin/LCTHW
+        - cd /home/kitso/LIBRARY/koding/LCTHW
         - mc
