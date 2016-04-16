@@ -94,7 +94,7 @@ NeoBundle 'artur-shaik/vim-javacomplete2'
 NeoBundle 'vim-scripts/CRefVim'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'jmcantrell/vim-virtualenv'
-NeoBundle 'vim-scripts/vim-webdevicons'
+" NeoBundle 'vim-scripts/vim-webdevicons'
 
 " NeoBundle 'artur-shaik/vim-javacomplete2'
 " NeoBundle 'Valloric/YouCompleteMe'

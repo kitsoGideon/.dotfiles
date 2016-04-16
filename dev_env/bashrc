@@ -1,24 +1,23 @@
 # virtualenv and virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/var/mypy2/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/var/mypy2/bin/virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /var/mypy2/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=/var/mypy2/bin/python
+# export VIRTUALENVWRAPPER_VIRTUALENV=/var/mypy2/bin/virtualenv
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /var/mypy2/bin/virtualenvwrapper.sh
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
-if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-fi
+# if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+#     source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+# fi
 export PYTHONPATH=~/.pythonrc.py
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Added by Canopy installer on 2016-02-07
 # VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make the bash prompt show that Canopy is active, otherwise 1
-alias activate_canopy="source '/home/kitso/Enthought/Canopy_64bit/User/bin/activate'"
+# alias activate_canopy="source '/home/kitso/Enthought/Canopy_64bit/User/bin/activate'"
 # VIRTUAL_ENV_DISABLE_PROMPT=1 source '/home/kitso/Enthought/Canopy_64bit/User/bin/activate'
 
 # added by Anaconda3 2.5.0 installer
-export PATH="/home/kitso/anaconda3/bin:$PATH"
+# export PATH="/home/kitso/anaconda3/bin:$PATH"
 
 man() {
 	env \
@@ -31,3 +30,20 @@ man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
 }
+#INFINALITY FONT RENDERING CONFIG
+/etc/infinality-settings.sh
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv init -)"
