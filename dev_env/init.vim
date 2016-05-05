@@ -19,8 +19,7 @@ syntax on
 " Use the default filetype settings, so that mail gets 'textwidth' set to 72,
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
-filetype plugin indent on
-let g:python_host_prog='/usr/bin/python2.7'
+let g:python_host_prog='/home/kitso/.pyenv/versions/3.5.1/bin/python'
 " Put these in an autocmd group, so that we can delete them easily.
 augroup.vimrcEx
   autocmd!
@@ -54,81 +53,71 @@ filetype on                  " required
 
 
 "Required
-set runtimepath^=~/.nvim/bundle/neobundle.vim/
 
 " Required
-call neobundle#begin(expand('~/.nvim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
+call plug#begin('~/.nvim/bundle/')
+" Let Plug manage Plug
 " Required
-NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
-" Refer to |:NeoBundle-examples|.
-NeoBundle 'sjl/splice.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'justinmk/vim-syntax-extra'
-NeoBundle 'csexton/snipmate.vim'
+" Refer to |:Plug-examples|.
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'easymotion/vim-easymotion'
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'hail2u/vim-css3-syntax', { 'for': 'css, scss, html' }
+Plug 'justinmk/vim-syntax-extra'
+Plug 'csexton/snipmate.vim'
 
 " webdev stuff
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'skammer/vim-css-color'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'rstacruz/sparkup'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'skammer/vim-css-color', { 'for': 'css, scss, html' }
+Plug 'tomtom/tcomment_vim'
+Plug 'rstacruz/sparkup'
 
 " java completetion
-NeoBundle 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 
 " foobits
-" NeoBundle 'floobits/floobits-neovim'
+" Plug 'floobits/floobits-neovim'
 
-NeoBundle 'vim-scripts/CRefVim'
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'jmcantrell/vim-virtualenv'
-" NeoBundle 'vim-scripts/vim-webdevicons'
-
-" NeoBundle 'artur-shaik/vim-javacomplete2'
-" NeoBundle 'Valloric/YouCompleteMe'
-" NeoBundle 'rdnetto/YCM-Generator'
-
-NeoBundle 'scrooloose/nerdtree'
-" Note: You don't set neobundle setting in .gvimrc!
-
-call neobundle#end()
+Plug 'vim-scripts/CRefVim', { 'for': 'c' }
+Plug 'vim-scripts/taglist.vim'
+Plug 'plasticboy/vim-markdown', { 'for': 'html, md' }
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'Valloric/YouCompleteMe', { 'for': 'python, c, cpp, cc, cxx, h' }
+Plug 'rdnetto/YCM-Generator', { 'for': 'python, c, cpp, cc, cxx, h'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-scripts/vim-webdevicons' | Plug 'vim-airline/vim-airline'
 
 
+call plug#end()
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 " Put your non-Plugin stuff after this line
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Italic\11
 set encoding=utf-8     " Necessary to show unicode glyphs
 set laststatus=2       " Always show the statusline
 set showtabline=2      " Alway show the tabline, even if there is only one tab
-set t_Co=256           " explicitly tell vim my terminal supports 256 colors
+" set t_Co = 256           " explicitly tell vim my terminal supports 256 colors
 set noshowmode         " Hide the default mode text (e.g -- INSERT -- below the statusline)
 set list
 set listchars=tab:ᐅ\ ,eol:𐒇
-colorscheme delek
+" colorscheme delek
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)ྲ
 set ruler              " show the cursor position all the time
 set showcmd            " display incomplete commands
-
 set clipboard+=unnamedplus
 set cursorline
 
 " the colorscheme
-"source ~/.nvim/colors/desertEx.vim
+source ~/.nvim/colors/topfunky-light.vim
 " do not use arrows in normal mode
 noremap <down> <Nop>
 noremap <left> <Nop>
@@ -189,33 +178,7 @@ nmap gv guiW
 " airline status stuff
 let g:airline_powerline_fonts=1
 let g:airline_theme = "laederon"
-
- if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
-
-let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_symbols.linenr = '␤'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.branch = '⎇'
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.spell = 'Ꞩ'
-  let g:airline_symbols.notexists = '∄'
-  let g:airline_symbols.whitespace = 'Ξ'
-
-  " powerline symbols
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.readonly = ''
-  let g:airline_symbols.linenr = ''
-
-
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1

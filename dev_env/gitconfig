@@ -1,5 +1,5 @@
 [user]
-	name = pedrogedion7
+	name = kitsoGideon
 	email = infiniti.kitso@gmail.com
 
 [core]
@@ -10,10 +10,3 @@
 	autosetuprebase = always
 [push]
 	default = simple
-[merge]
-tool = threesome
-
-[mergetool "threesome"]
-cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-trustExitCode = true
-

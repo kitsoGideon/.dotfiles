@@ -44,6 +44,4 @@ windows:
   - htmlCanvas: cd templates
   - rails:
   - fileManager:
-      - cd /home/kitso/LIBRARY/koding/python
-      - mc
 

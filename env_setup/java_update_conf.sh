@@ -1,10 +1,15 @@
 #! /bin/bash
 
 update-alternatives --config idlj
+update-alternatives --config idljappletviewer
+update-alternatives --config ControlPanel
 update-alternatives --config jar
+update-alternatives --config extcheck
 update-alternatives --config jarsigner
 update-alternatives --config javafxpackager
 update-alternatives --config javah
+update-alternatives --config java
+update-alternatives --config javac
 update-alternatives --config javap
 update-alternatives --config javapackager
 update-alternatives --config java-rmi.cgi
@@ -27,6 +32,7 @@ update-alternatives --config jstack
 update-alternatives --config jstat
 update-alternatives --config jstatd
 update-alternatives --config jvisualvm
+update-alternatives --config keytool
 update-alternatives --config native2ascii
 update-alternatives --config orbd
 update-alternatives --config pack200

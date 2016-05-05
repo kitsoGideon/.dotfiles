@@ -1,7 +1,7 @@
 # ~/.tmuxinator/itachi.yml
 
 name: bleach
-root: ~/.www/flaskApp/web_design
+root: ~/.gitClones/spy_quest
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,7 +10,7 @@ root: ~/.www/flaskApp/web_design
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
+pre_window: workon infiniti
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -28,12 +28,12 @@ root: ~/.www/flaskApp/web_design
 # post: tmux -CC attach -t itachi
 
 windows:
-  - canvas: workon infiniti
+  - canvas:
       layout: main-vertical
       panes:
         - # nvim
         - # rails
   - htmlCanvas: cd templates
-  - cssCanvas: cd static/css
+  - scssCanvas: cd static/scss
   - jsCanvas: cd static/js
-  - rails: workon infiniti
+  - rails:
