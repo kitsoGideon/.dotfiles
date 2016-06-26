@@ -1,7 +1,7 @@
-# ~/.tmuxinator/itachi.yml
+# ~/.tmuxinator/kamui.yml
 
-name: itachi
-root: ~/.www/kamui
+name: kamui
+root: ~/bin/c_source/ex19
 
 # Optional tmux socket
 # socket_name: foo
@@ -11,7 +11,6 @@ root: ~/.www/kamui
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: workon infiniti && clear
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -26,21 +25,19 @@ pre_window: workon infiniti && clear
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t itachi
+# post: tmux -CC attach -t SPARTA
 
 windows:
   - canvas:
       layout: main-vertical
       panes:
-        - # nvim
+        - # vim somefile
         - # zsh
         - bash
   - hacks:
-  - cssCanvas:
       layout: main-vertical
       panes:
-        - cd static/css # scss
-        - cd static/css # css
-  - htmlCanvas: cd templates
+        - # vim somefile
+        - zsh
+        - bash
   - rails:
-  - fileManager:

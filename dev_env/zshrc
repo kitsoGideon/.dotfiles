@@ -108,3 +108,7 @@ eval "$(pyenv init -)"
 
 #INFINALITY FONT RENDERING CONFIG
 /etc/infinality-settings.sh
+
+[ -s "/home/kitso/.dnx/dnvm/dnvm.sh" ] && . "/home/kitso/.dnx/dnvm/dnvm.sh" # Load dnvm
+
+[ -s "/home/kitso/.k/kvm/kvm.sh" ] && . "/home/kitso/.k/kvm/kvm.sh" # Load kvm

@@ -40,6 +40,4 @@ windows:
         - # vim somefile
         - zsh
         - bash
-  - fileManager:
-        - cd /home/kitso/LIBRARY/koding/LCTHW
-        - mc
+  - rails:
