@@ -1,7 +1,7 @@
-# ~/.tmuxinator/kodeX.yml
+# ~/.tmuxinator/cpp.yml
 
-name: kodeX
-root: ~/bin/c_source/KodeX
+name: cpp
+root: ~/bin/c_source
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,13 +25,13 @@ root: ~/bin/c_source/KodeX
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t kodeX
+# post: tmux -CC attach -t cpp
 
 windows:
   - editor:
       layout: main-vertical
       panes:
-        - #vim
-        - #guard
+        - # vim
+        - # guard
   - server:
   - logs:

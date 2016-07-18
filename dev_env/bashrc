@@ -1,8 +1,14 @@
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=/home/kitso/bin:/home/kitso/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kitso/.rvm/bin:/home/kitso/.rvm/bin:/home/kitso/.rvm/bin:/bin
+
+export GOROOT=/opt/go
+export PATH=$PATH:$GOROOT/bin
+
 # virtualenv and virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/home/kitso/.pyenv/versions/3.5.1/bin/python 
-export VIRTUALENVWRAPPER_VIRTUALENV=/home/kitso/.pyenv/versions/3.5.1/bin/virtualenv
+export VIRTUALENVWRAPPER_PYTHON=/home/kitso/.pyenv/versions/3.5.2/bin/python 
+export VIRTUALENVWRAPPER_VIRTUALENV=/home/kitso/.pyenv/versions/3.5.2/bin/virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-source /home/kitso/.pyenv/versions/3.5.1/bin/virtualenvwrapper.sh
+source /home/kitso/.pyenv/versions/3.5.2/bin/virtualenvwrapper.sh
 
 export PYTHONPATH=~/.pythonrc.py
 
@@ -17,13 +23,9 @@ man() {
 		LESS_TERMCAP_us=$(printf "\e[1;32m") \
 			man "$@"
 }
-#INFINALITY FONT RENDERING CONFIG
-/etc/infinality-settings.sh
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 eval "$(pyenv init -)"
 
@@ -31,10 +33,6 @@ eval "$(pyenv init -)"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-if [ -f  /usr/local/lib/python2.7/dist-packages/powerline_status-2.4.dev9999-py2.7.egg/powerline/bindings/bash/powerline.sh ]; then
-    source /usr/local/lib/python2.7/dist-packages/powerline_status-2.4.dev9999-py2.7.egg/powerline/bindings/bash/powerline.sh
+if [ -f  /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 fi
-
-
-# added by Anaconda3 2.5.0 installer
-export PATH="/home/kitso/.pyenv/versions/Anaconda3-2.5.0/bin:$PATH"

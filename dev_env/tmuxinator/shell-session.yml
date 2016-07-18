@@ -1,7 +1,7 @@
-# ~/.tmuxinator/kodeX.yml
+# ~/.tmuxinator/shell-session.yml
 
-name: kodeX
-root: ~/bin/c_source/KodeX
+name: shell-session
+root: ~/
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,13 +25,12 @@ root: ~/bin/c_source/KodeX
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t kodeX
+# post: tmux -CC attach -t shell-session
 
 windows:
-  - editor:
+  - page1:
       layout: main-vertical
-      panes:
-        - #vim
-        - #guard
-  - server:
-  - logs:
+  - page2:
+      layout: main-vertical
+  - page3:
+      layout: main-vertical

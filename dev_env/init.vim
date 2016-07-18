@@ -50,9 +50,6 @@ windo setlocal number
 
 filetype plugin indent on    " required
 
-
-
-
 call plug#begin('~/.nvim/bundle/')
 " Let Plug manage Plug
 " Required
@@ -64,11 +61,23 @@ Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'csexton/snipmate.vim'
 Plug 'tpope/vim-surround'
-Plug 'tomtom/tcomment_vim'
 Plug 'vim-scripts/taglist.vim'
+Plug 'arkwright/vim-whiplash'
+Plug 'scrooloose/nerdcommenter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'lepture/vim-jinja'
+Plug 'cohlin/vim-colorschemes'
+Plug 'Shougo/vinarise.vim'
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+
+
+Plug 'scrooloose/syntastic'
 
 " webdev stuff
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss', 'html', 'jinja'] }
+Plug 'coot/html5-syntax.vim', { 'for': ['css', 'scss', 'html'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'jinja'] }
 Plug 'michalliu/jsruntime.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
@@ -76,34 +85,26 @@ Plug 'michalliu/sourcebeautify.vim',  { 'for': ['css', 'scss', 'html', 'jinja'] 
 Plug 'skammer/vim-css-color', { 'for': ['css', 'scss', 'html', 'jinja'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['css', 'scss', 'html', 'jinja'] }
-Plug 'coot/html5-syntax.vim', { 'for': ['css', 'scss', 'html', 'jinja'] }
 " java completetion
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
-" C# completion
-" Plug 'OmniSharp/omnisharp-vim', {'for': 'cs' }
-" Plug 'SirVer/ultisnips', {'for': 'cs' }
-" Plug 'ervandew/supertab', {'for': 'cs' }
-" Plug 'Shougo/neocomplete.vim', {'for': 'cs' }
-Plug 'tpope/vim-dispatch', {'for': 'cs' }
-Plug 'OrangeT/vim-csharp', {'for': 'cs' }
-" C & C++ stuff
-Plug 'vim-scripts/CRefVim', { 'for': 'c' }
-" Plug 'Valloric/YouCompleteMe', { 'for': ['python', 'c', 'cpp', 'cc', 'cxx', 'cs'] }
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" GO tools
+Plug 'fatih/vim-go', {'for': 'go'}
 
 
 " Eyecandy
+Plug 'cohlin/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 
 call plug#end()
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 " Put your non-Plugin stuff after this line
+" the colorscheme
 set encoding=utf-8     " Necessary to show unicode glyphs
 set laststatus=2       " Always show the statusline
 set showtabline=2      " Alway show the tabline, even if there is only one tab
@@ -111,7 +112,6 @@ set showtabline=2      " Alway show the tabline, even if there is only one tab
 set noshowmode         " Hide the default mode text (e.g -- INSERT -- below the statusline)
 set list
 set listchars=tab:ᐅ\ ,eol:𐒇
-" colorscheme delek
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)ྲ
 set ruler              " show the cursor position all the time
@@ -119,8 +119,6 @@ set showcmd            " display incomplete commands
 set clipboard+=unnamedplus
 set cursorline
 
-" the colorscheme
-source ~/.nvim/colors/mytopfunky.vim
 " do not use arrows in normal mode
 noremap <down> <Nop>
 noremap <left> <Nop>
@@ -146,9 +144,22 @@ set expandtab
 set smartindent
 set shiftround
 set completeopt+=longest
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indentation
 
+" absolute line numbers in insert mode, relative otherwise for easy movement
+au InsertEnter * :set nu
+au InsertLeave * :set rnu
+
+
+" automatically reload vimrc when it's saved
+"au BufWritePost ~/.dotfiles/dev_env/init.vim so ~/.dotfiles/dev_env/init.vim
+
+
+" spelling
+"set spell spelllang=en_us
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
-autocmd Filetype jinja setlocal ts=2 sw=2 expandtab
+"autocmd Filetype jinja setlocal ts=2 sw=2 expandtab
 
 "highlighting hacks
 hi LineNr ctermbg = grey
@@ -159,6 +170,9 @@ hi normal ctermfg = grey
 noremap <C-s> :w<cr> " save in normal mode
 inoremap <C-s> <Esc>:w<cr> " save in insert mode and go to normal mode
 
+" tabs
+map <leader>l <esc>:tabnext<CR>
+map <leader>h <esc>:tabprevious<CR>
 
 let mapleader=","
 noremap \ ,
@@ -182,5 +196,13 @@ noremap gv guiW
 
 " airline status stuff
 let g:airline_powerline_fonts=1
-let g:airline_theme = "laederon"
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let g:airline_theme = "darcula"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+
+" EYE CANDY
+source ~/.nvim/colors/mytopfunky.vim
+"colorscheme delek
+
+" for changing project directories inside vim
+"let g:WhiplashProjectsDir = "~/bin/"

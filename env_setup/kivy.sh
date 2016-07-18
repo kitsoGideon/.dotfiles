@@ -1,11 +1,10 @@
 #! /bin/bash
 
-sudo apt-get install -y --force-yes\
-    python-pip \
+sudo apt install \
     build-essential \
-    git \
-    python \
     python-dev \
+    python3-dev \
+    ffmpeg \
     libsdl2-dev \
     libsdl2-image-dev \
     libsdl2-mixer-dev \

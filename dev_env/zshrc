@@ -5,7 +5,7 @@ ZSH=/home/kitso/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="crunch" # agnoster mikeh jonathan crunch pygmalion af-magic
+ZSH_THEME="crunch" # sorin agnoster mikeh jonathan crunch pygmalion af-magic
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,14 +53,14 @@ plugins=(git colored-man-pages zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="/home/kitso/bin/c_source:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kitso/.rvm/bin"
+#export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kitso/.rvm/bin"
 export MANPATH="/usr/local/man:$MANPATH"
 export PYTHONSTARTUP=~/.pythonrc.py
 #virtualenv and virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/home/kitso/.pyenv/versions/3.5.1/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/home/kitso/.pyenv/versions/3.5.1/bin/virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-source /home/kitso/.pyenv/versions/3.5.1/bin/virtualenvwrapper.sh
+#export VIRTUALENVWRAPPER_PYTHON=/home/kitso/.pyenv/versions/3.5.1/bin/python
+#export VIRTUALENVWRAPPER_VIRTUALENV=/home/kitso/.pyenv/versions/3.5.1/bin/virtualenv
+#export WORKON_HOME=$HOME/.virtualenvs
+#source /home/kitso/.pyenv/versions/3.5.1/bin/virtualenvwrapper.sh
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -99,16 +99,14 @@ setopt CORRECT
 
 export EDITOR=nvim
 
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/kitso/.rvm/bin"
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH:"
 
+eval "$(pyenv init -)"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-eval "$(pyenv init -)"
+export GOROOT=/opt/go
+export PATH=$PATH:$GOROOT/bin
 
-#INFINALITY FONT RENDERING CONFIG
-/etc/infinality-settings.sh
-
-[ -s "/home/kitso/.dnx/dnvm/dnvm.sh" ] && . "/home/kitso/.dnx/dnvm/dnvm.sh" # Load dnvm
-
-[ -s "/home/kitso/.k/kvm/kvm.sh" ] && . "/home/kitso/.k/kvm/kvm.sh" # Load kvm

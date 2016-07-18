@@ -1,7 +1,7 @@
 # ~/.tmuxinator/kamui.yml
 
 name: kamui
-root: ~/bin/c_source/ex19
+root: ~/bin/c_source/
 
 # Optional tmux socket
 # socket_name: foo
@@ -33,11 +33,9 @@ windows:
       panes:
         - # vim somefile
         - # zsh
-        - bash
   - hacks:
       layout: main-vertical
       panes:
         - # vim somefile
-        - zsh
-        - bash
+        - # zsh
   - rails:
