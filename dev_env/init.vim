@@ -65,11 +65,13 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'arkwright/vim-whiplash'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'lepture/vim-jinja'
 Plug 'cohlin/vim-colorschemes'
 Plug 'Shougo/vinarise.vim'
+
+" Python stuff
+Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 
 
@@ -82,7 +84,6 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'jinja'] }
 Plug 'michalliu/jsruntime.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'michalliu/sourcebeautify.vim',  { 'for': ['css', 'scss', 'html', 'jinja'] }
-Plug 'skammer/vim-css-color', { 'for': ['css', 'scss', 'html', 'jinja'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
 " java completetion
@@ -118,6 +119,7 @@ set ruler              " show the cursor position all the time
 set showcmd            " display incomplete commands
 set clipboard+=unnamedplus
 set cursorline
+set autoread
 
 " do not use arrows in normal mode
 noremap <down> <Nop>
@@ -147,6 +149,7 @@ set completeopt+=longest
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
+" foldmethod
 " absolute line numbers in insert mode, relative otherwise for easy movement
 au InsertEnter * :set nu
 au InsertLeave * :set rnu
@@ -182,8 +185,8 @@ imap <leader>" ""<ESC>i
 imap <leader>( ()<ESC>i
 imap <leader>[ []<ESC>i
 imap <leader>{ {}<ESC>i
+imap <leader>% %%<ESC>i
 
-map <leader>co <C-_><C-_> " tcomment
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <CR>
 
 " new line above or below and get out of insert mode
@@ -193,6 +196,8 @@ noremap gO O<ESC>j
 " upper or lowercase the current word
 noremap g^ gUiW
 noremap gv guiW
+vnoremap g^ gUi
+vnoremap gv gui
 
 " airline status stuff
 let g:airline_powerline_fonts=1
@@ -203,6 +208,3 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " EYE CANDY
 source ~/.nvim/colors/mytopfunky.vim
 "colorscheme delek
-
-" for changing project directories inside vim
-"let g:WhiplashProjectsDir = "~/bin/"
