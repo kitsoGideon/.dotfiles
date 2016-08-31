@@ -1,7 +1,7 @@
-# ~/.tmuxinator/itachi.yml
+# ~/.tmuxinator/hashirama.yml
 
 name: hashirama
-root: ~/.www/webDesign
+root: ~/bin/py_source
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,7 +10,7 @@ root: ~/.www/webDesign
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
+pre_window: pyenv shell 3.5.2
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -25,15 +25,21 @@ root: ~/.www/webDesign
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t itachi
+# post: tmux -CC attach -t pyflask
 
 windows:
-  - canvas:
+  - server editor:
       layout: main-vertical
       panes:
-        - # nvim
-        - # rails
-  - htmlCanvas: cd templates
-  - cssCanvas: cd static/css
-  - jsCanvas: cd static/js
-  - rails:
+        - #vim
+        - #guard
+  - client editor:
+      layout: main-vertical
+      panes:
+        - #vim
+        - #guard
+  - server:
+      layout: main-vertical
+      panes:
+        - #vim
+        - #guard

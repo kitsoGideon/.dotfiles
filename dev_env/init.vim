@@ -69,13 +69,23 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'lepture/vim-jinja'
 Plug 'cohlin/vim-colorschemes'
 Plug 'Shougo/vinarise.vim'
+Plug 'scrooloose/syntastic'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'roxma/vim-tmux-clipboard'
+Plug 'janko-m/vim-test'
+
+
+
+" Git stuff
+Plug 'jreybert/vimagit'
 
 " Python stuff
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
-Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+"Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 
-
-Plug 'scrooloose/syntastic'
+" Arduino
+Plug 'jplaut/vim-arduino-ino'
 
 " webdev stuff
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss', 'html', 'jinja'] }
@@ -92,6 +102,11 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 " GO tools
 Plug 'fatih/vim-go', {'for': 'go'}
 
+" C and C++
+Plug 'arakashic/chromatica.nvim', {'for': ['c', 'cpp', 'h']}
+let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/libclang.so'
+let g:chromatica#responsive_mode=1
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Eyecandy
 Plug 'cohlin/vim-colorschemes'
