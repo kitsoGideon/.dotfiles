@@ -76,7 +76,6 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'janko-m/vim-test'
 
 
-
 " Git stuff
 Plug 'jreybert/vimagit'
 
@@ -93,7 +92,7 @@ Plug 'coot/html5-syntax.vim', { 'for': ['css', 'scss', 'html'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'jinja'] }
 Plug 'michalliu/jsruntime.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
-Plug 'michalliu/sourcebeautify.vim',  { 'for': ['css', 'scss', 'html', 'jinja'] }
+"Plug 'michalliu/sourcebeautify.vim',  { 'for': ['css', 'scss', 'html', 'jinja'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
 " java completetion
