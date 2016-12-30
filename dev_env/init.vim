@@ -175,22 +175,33 @@ set expandtab
 set smartindent
 set shiftround
 set completeopt+=longest
-vnoremap < <gv " better indentation
-vnoremap > >gv " better indentation
 
-" foldmethod
+" remove trailing whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
+
+" easy split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+au VimResized * exe "normal! \<c-w>="
+
+" show current file in NerdTree
+map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
+
+" reselect visual block after indentation
+vnoremap < <gv
+vnoremap > >gv
+
 " absolute line numbers in insert mode, relative otherwise for easy movement
 au InsertEnter * :set nu
 au InsertLeave * :set rnu
 
-
-" automatically reload vimrc when it's saved
-"au BufWritePost ~/.dotfiles/dev_env/init.vim so ~/.dotfiles/dev_env/init.vim
-
-
 " spelling
 "set spell spelllang=en_us
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype jinja setlocal ts=2 sw=2 expandtab
+autocmd Filetype jinja2 setlocal ts=2 sw=2 expandtab
 "autocmd Filetype jinja setlocal ts=2 sw=2 expandtab
 
 "highlighting hacks
