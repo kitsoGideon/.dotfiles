@@ -2,7 +2,7 @@
 
 sudo apt install \
     build-essential \
-    python-dev \
+    python3 \
     python3-dev \
     ffmpeg \
     libsdl2-dev \

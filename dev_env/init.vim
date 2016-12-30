@@ -19,8 +19,11 @@ syntax on
 " Use the default filetype settings, so that mail gets 'textwidth' set to 72,
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
-" let g:python_host_prog='/home/kitso/.pyenv/versions/3.5.1/bin/python'
 " Put these in an autocmd group, so that we can delete them easily.
+
+let g:python_host_prog='/usr/bin/python2.7'
+let g:python3_host_prog='/home/kitso/.pyenv/versions/3.5.1/bin/python'
+
 augroup.vimrcEx
   autocmd!
 
@@ -58,33 +61,35 @@ call plug#begin('~/.nvim/bundle/')
 " Refer to |:Plug-examples|.
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'justinmk/vim-syntax-extra'
 Plug 'csexton/snipmate.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/taglist.vim'
 Plug 'arkwright/vim-whiplash'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'lepture/vim-jinja'
-Plug 'cohlin/vim-colorschemes'
-Plug 'Shougo/vinarise.vim'
+Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/vim-tmux-clipboard'
-Plug 'janko-m/vim-test'
+Plug 'janko-m/vim-test', {'for': ['go', 'rb']}
 
+
+" binary files
+Plug 'Shougo/vinarise.vim'
+let g:vinarise_enable_auto_detect=1
 
 " Git stuff
 Plug 'jreybert/vimagit'
 
 " Python stuff
+Plug 'lambdalisue/vim-pyenv', {'for': 'python'}
+Plug 'lepture/vim-jinja', {'for': ['jinja', 'html']}
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
-"Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 
 " Arduino
-Plug 'jplaut/vim-arduino-ino'
+Plug 'jplaut/vim-arduino-ino', {'for': 'ino'}
 
 " webdev stuff
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss', 'html', 'jinja'] }
@@ -95,24 +100,34 @@ Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css',
 "Plug 'michalliu/sourcebeautify.vim',  { 'for': ['css', 'scss', 'html', 'jinja'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
-" java completetion
+
+" java tools
+let java_highlight_functions = 1
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
 
 " GO tools
 Plug 'fatih/vim-go', {'for': 'go'}
 
 " C and C++
-Plug 'arakashic/chromatica.nvim', {'for': ['c', 'cpp', 'h']}
-let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/libclang.so'
+Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp']}
+Plug 'arakashic/chromatica.nvim', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp']}
+let g:chromatica#libclang_path='/opt/cling_2016-07-31_ubuntu16/lib/libclang.so'
 let g:chromatica#responsive_mode=1
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+" Markdown
+Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'markdown.pandoc']}
+Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['md', 'markdown.pandoc']}
 " Eyecandy
-Plug 'cohlin/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons'
+Plug 'zefei/vim-colortuner'
+Plug 'NLKNguyen/papercolor-theme' "using it for the airline prompt
+"Plug 'cohlin/vim-colorschemes'
+"Plug 'caglartoklu/ftcolor.vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'google/vim-colorscheme-primary'
 
 
 call plug#end()
@@ -210,15 +225,23 @@ noremap gO O<ESC>j
 " upper or lowercase the current word
 noremap g^ gUiW
 noremap gv guiW
-vnoremap g^ gUi
-vnoremap gv gui
+vnoremap g^ gUi<ESC>
+vnoremap gv gui<ESC>
 
-" airline status stuff
+" airline Status stuff
 let g:airline_powerline_fonts=1
-let g:airline_theme = "darcula"
+let g:airline_theme = "PaperColor"
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+" syntastic stuff
+let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = "\u2717"
+let g:syntastic_warning_symbol = "\u26A0"
 
+" vim-go stuff
+let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
 " EYE CANDY
 source ~/.nvim/colors/mytopfunky.vim
-"colorscheme delek
+"set background=dark
+"colorscheme PaperColor
