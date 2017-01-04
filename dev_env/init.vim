@@ -22,7 +22,7 @@ syntax on
 " Put these in an autocmd group, so that we can delete them easily.
 
 let g:python_host_prog='/usr/bin/python2.7'
-let g:python3_host_prog='/home/kitso/.pyenv/versions/3.5.1/bin/python'
+let g:python3_host_prog='/home/kitso/.pyenv/versions/3.6.0/bin/python'
 
 augroup.vimrcEx
   autocmd!
@@ -87,6 +87,7 @@ Plug 'lambdalisue/vim-pyenv', {'for': 'python'}
 Plug 'lepture/vim-jinja', {'for': ['jinja', 'html']}
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+Plug 'pzxbc/vim-kv'
 
 " Arduino
 Plug 'jplaut/vim-arduino-ino', {'for': 'ino'}
@@ -176,8 +177,18 @@ set smartindent
 set shiftround
 set completeopt+=longest
 
+" change leader key from / to ,
+let mapleader=","
+noremap \ ,
+
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
+
+" set backup directory
+set bdir=/home/kitso/.local/share/nvim/backup
+
+" run python code from vim
+map <f5> :w <CR>!clear <CR>:!python % <CR>
 
 " easy split navigation
 nnoremap <C-h> <C-w>h
@@ -186,6 +197,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 au VimResized * exe "normal! \<c-w>="
 
+" NERDTree Toggle
+nnoremap <leader>. :NERDTreeToggle<CR>
 " show current file in NerdTree
 map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 
@@ -204,7 +217,7 @@ autocmd Filetype jinja setlocal ts=2 sw=2 expandtab
 autocmd Filetype jinja2 setlocal ts=2 sw=2 expandtab
 "autocmd Filetype jinja setlocal ts=2 sw=2 expandtab
 
-"highlighting hacks
+"highlightingf hacks
 hi LineNr ctermbg = grey
 hi normal ctermfg = grey
 "
@@ -217,8 +230,6 @@ inoremap <C-s> <Esc>:w<cr> " save in insert mode and go to normal mode
 map <leader>l <esc>:tabnext<CR>
 map <leader>h <esc>:tabprevious<CR>
 
-let mapleader=","
-noremap \ ,
 
 imap <leader>' ''<ESC>
 imap <leader>" ""<ESC>i
