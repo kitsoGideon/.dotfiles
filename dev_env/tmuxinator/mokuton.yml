@@ -1,7 +1,7 @@
 # ~/.tmuxinator/hashirama.yml
 
 name: mokuton
-root: ~/bin/py_source/kalender
+root: ~/bin/py_source/quiz
 
 # Optional tmux socket
 # socket_name: foo
@@ -31,7 +31,7 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - nvim .
+        - #nvim .
   - hacking:
       layout: main-vertical
       panes:

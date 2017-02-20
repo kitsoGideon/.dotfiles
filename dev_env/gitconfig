@@ -10,3 +10,11 @@
 	autosetuprebase = always
 [push]
 	default = simple
+
+[merge]
+tool = splice
+
+[mergetool "splice"]
+cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+trustExitCode = true
+

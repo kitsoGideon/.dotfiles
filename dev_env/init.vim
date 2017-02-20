@@ -64,20 +64,35 @@ Plug 'easymotion/vim-easymotion'
 Plug 'csexton/snipmate.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/taglist.vim'
+Plug 'majutsushi/tagbar'
 Plug 'arkwright/vim-whiplash'
 Plug 'scrooloose/nerdcommenter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
-Plug 'scrooloose/syntastic'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'janko-m/vim-test', {'for': ['go', 'rb']}
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'sjl/splice.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'thinca/vim-quickrun'
+Plug 'nathanaelkane/vim-indent-guides'
 
 
 " binary files
 Plug 'Shougo/vinarise.vim'
 let g:vinarise_enable_auto_detect=1
+
+" SQL
+Plug 'cosminadrianpopescu/vim-sql-workbench'
+
+" autocompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale'
+"Plug 'scrooloose/syntastic'
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " Git stuff
 Plug 'jreybert/vimagit'
@@ -87,7 +102,8 @@ Plug 'lambdalisue/vim-pyenv', {'for': 'python'}
 Plug 'lepture/vim-jinja', {'for': ['jinja', 'html']}
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
-Plug 'pzxbc/vim-kv'
+Plug 'pzxbc/vim-kv', {'for': 'kv'}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
 
 " Arduino
 Plug 'jplaut/vim-arduino-ino', {'for': 'ino'}
@@ -98,33 +114,43 @@ Plug 'coot/html5-syntax.vim', { 'for': ['css', 'scss', 'html'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'jinja'] }
 Plug 'michalliu/jsruntime.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
-"Plug 'michalliu/sourcebeautify.vim',  { 'for': ['css', 'scss', 'html', 'jinja'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
 
 " java tools
-let java_highlight_functions = 1
 Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
+
+" javascript
+Plug 'carlitux/deoplete-ternjs', { 'for': 'js', 'do': 'npm install -g tern' }
 
 " GO tools
 Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make'}
 
 " C and C++
-Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp']}
-Plug 'arakashic/chromatica.nvim', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp']}
-let g:chromatica#libclang_path='/opt/cling_2016-07-31_ubuntu16/lib/libclang.so'
-let g:chromatica#responsive_mode=1
+Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp', 'hxx']}
+Plug 'zchee/deoplete-clang', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp', 'hxx']}
+Plug 'Shougo/neoinclude.vim', {'for': ['h', 'hpp', 'hxx']}
 
 " Markdown
 Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'markdown.pandoc']}
 Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['md', 'markdown.pandoc']}
 " Eyecandy
+Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
+Plug 'alessandroyorba/sidonia'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
 Plug 'ryanoasis/vim-devicons'
 Plug 'zefei/vim-colortuner'
+
+" colorschemes
 Plug 'NLKNguyen/papercolor-theme' "using it for the airline prompt
+Plug 'fneu/breezy'
+Plug 'zanglg/nova.vim'
+Plug 'KeitaNakamura/neodark.vim'
+Plug 'tyrannicaltoucan/vim-quantum'
 "Plug 'cohlin/vim-colorschemes'
 "Plug 'caglartoklu/ftcolor.vim'
 "Plug 'morhetz/gruvbox'
@@ -132,14 +158,14 @@ Plug 'NLKNguyen/papercolor-theme' "using it for the airline prompt
 
 
 call plug#end()
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 " Put your non-Plugin stuff after this line
-" the colorscheme
+"
 set encoding=utf-8     " Necessary to show unicode glyphs
 set laststatus=2       " Always show the statusline
 set showtabline=2      " Alway show the tabline, even if there is only one tab
-" set t_Co = 256           " explicitly tell vim my terminal supports 256 colors
 set noshowmode         " Hide the default mode text (e.g -- INSERT -- below the statusline)
 set list
 set listchars=tab:ᐅ\ ,eol:𐒇
@@ -150,22 +176,6 @@ set showcmd            " display incomplete commands
 set clipboard+=unnamedplus
 set cursorline
 set autoread
-
-" do not use arrows in normal mode
-noremap <down> <Nop>
-noremap <left> <Nop>
-noremap <right> <Nop>
-noremap <up> <Nop>
-" do not use arrows in insert mode
-inoremap <down> <Nop>
-inoremap <left> <Nop>
-inoremap <right> <Nop>
-inoremap <up> <Nop>
-" do not use arrows in visual mode
-vnoremap <down> <Nop>
-vnoremap <left> <Nop>
-vnoremap <right> <Nop>
-vnoremap <up> <Nop>
 
 "tabs & indenatation
 set smarttab
@@ -180,6 +190,41 @@ set completeopt+=longest
 " change leader key from / to ,
 let mapleader=","
 noremap \ ,
+
+" EYE CANDY
+let java_highlight_functions = 1
+colorscheme quantum
+
+" airline Status stuff
+let g:airline_powerline_fonts=1
+let g:airline_theme='quantum'
+let g:quantum_italics = 1
+let g:quantum_black = 1
+
+" Ale stuff
+let g:ale_sign_error = "\u2717"
+let g:ale_sign_warning = "\u26A0"
+
+let g:tagbar_width = 35
+let g:NERDTreeWinSize = 25
+
+" vim-go stuff
+let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
+
+" deoplte-clang stuff
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-4.0.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.0/'
+
+" do not use arrows in normal mode
+noremap <down> <Nop>
+noremap <left> <Nop>
+noremap <right> <Nop>
+noremap <up> <Nop>
+"do not use arrows in visual mode
+vnoremap <down> <Nop>
+vnoremap <left> <Nop>
+vnoremap <right> <Nop>
+vnoremap <up> <Nop>
 
 " remove trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
@@ -198,7 +243,8 @@ nnoremap <C-l> <C-w>l
 au VimResized * exe "normal! \<c-w>="
 
 " NERDTree Toggle
-nnoremap <leader>. :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup = 1
 " show current file in NerdTree
 map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
 
@@ -225,6 +271,9 @@ hi normal ctermfg = grey
 " my keybinding mappings
 noremap <C-s> :w<cr> " save in normal mode
 inoremap <C-s> <Esc>:w<cr> " save in insert mode and go to normal mode
+" save and exit
+noremap <C-x> :wq<cr> " save in normal mode and exit
+inoremap <C-x> <Esc>:wq<cr> " save in insert mode and exit
 
 " tabs
 map <leader>l <esc>:tabnext<CR>
@@ -239,6 +288,7 @@ imap <leader>{ {}<ESC>i
 imap <leader>% %%<ESC>i
 
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <CR>
+nmap <F8> :TagbarToggle<CR>
 
 " new line above or below and get out of insert mode
 noremap g<C-o> o<ESC>k
@@ -250,20 +300,11 @@ noremap gv guiW
 vnoremap g^ gUi<ESC>
 vnoremap gv gui<ESC>
 
-" airline Status stuff
-let g:airline_powerline_fonts=1
-let g:airline_theme = "PaperColor"
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+" vim-jedi stuff
+autocmd CompleteDone * pclose
 
-" syntastic stuff
-let g:syntastic_enable_balloons = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = "\u2717"
-let g:syntastic_warning_symbol = "\u26A0"
-
-" vim-go stuff
-let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
-" EYE CANDY
-source ~/.nvim/colors/mytopfunky.vim
-"set background=dark
-"colorscheme PaperColor
+"" pydiction stuff
+"let g:pydiction_location = '/home/kitso/.nvim/bundle/Pydiction/complete-dict'
+" CSS & HTML autocompletion
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
