@@ -31,12 +31,11 @@ windows:
   - editor:
       layout: main-vertical
       panes:
-        - nvim main.py
+        - nvim
   - hacking:
       layout: main-vertical
       panes:
         - #vim
-        - #guard
   - serve:
       layout: main-vertical
       panes:

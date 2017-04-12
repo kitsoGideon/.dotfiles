@@ -59,6 +59,8 @@ call plug#begin('~/.nvim/bundle/')
 
 " My Bundles here:
 " Refer to |:Plug-examples|.
+"
+" Utility
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'csexton/snipmate.vim'
@@ -67,32 +69,31 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'majutsushi/tagbar'
 Plug 'arkwright/vim-whiplash'
 Plug 'scrooloose/nerdcommenter'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'janko-m/vim-test', {'for': ['go', 'rb']}
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'sjl/splice.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'thinca/vim-quickrun'
 Plug 'nathanaelkane/vim-indent-guides'
-
-
+Plug 'mattn/sonictemplate-vim'
 " binary files
 Plug 'Shougo/vinarise.vim'
 let g:vinarise_enable_auto_detect=1
 
-" SQL
-Plug 'cosminadrianpopescu/vim-sql-workbench'
-
 " autocompletion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
-"Plug 'scrooloose/syntastic'
+
+Plug 'wokalski/autocomplete-flow'
+" For func argument completion
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_completed_snippet = 1
 
 " Git stuff
 Plug 'jreybert/vimagit'
@@ -104,6 +105,7 @@ Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'pzxbc/vim-kv', {'for': 'kv'}
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'fs111/pydoc.vim', {'for': 'python'}
 
 " Arduino
 Plug 'jplaut/vim-arduino-ino', {'for': 'ino'}
@@ -116,12 +118,19 @@ Plug 'michalliu/jsruntime.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 
 Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
+Plug 'webdesus/polymer-ide.vim', {'for': ['html', 'md', 'jinja'], 'do': 'npm install'}
 
 " java tools
-Plug 'artur-shaik/vim-javacomplete2', { 'for': 'java' }
+Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java', 'xml'] }
+Plug 'hsanson/vim-android', {'for': ['java', 'xml']}
 
 " javascript
 Plug 'carlitux/deoplete-ternjs', { 'for': 'js', 'do': 'npm install -g tern' }
+
+" Markdown
+Plug 'neovim/node-host', {  'for': 'md', 'do': 'npm install'}
+Plug 'vimlab/mdown.vim', {  'for': 'md', 'do': 'npm install'}
+
 
 " GO tools
 Plug 'fatih/vim-go', {'for': 'go'}
@@ -133,17 +142,22 @@ Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp', 
 Plug 'zchee/deoplete-clang', {'for': ['c', 'cpp', 'h', 'cxx', 'cc', 'hpp', 'hxx']}
 Plug 'Shougo/neoinclude.vim', {'for': ['h', 'hpp', 'hxx']}
 
-" Markdown
-Plug 'vim-pandoc/vim-pandoc', {'for': ['md', 'markdown.pandoc']}
-Plug 'vim-pandoc/vim-pandoc-syntax', {'for': ['md', 'markdown.pandoc']}
 " Eyecandy
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'alessandroyorba/sidonia'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'zefei/vim-colortuner'
+
+" Matlab and Octave
+Plug 'daeyun/vim-matlab', {'for': 'm', 'do': ':UpdateRemotePlugins'}
+
+" swift
+Plug 'apple/swift', {'for': 'swift'}
+Plug 'keith/swift', {'for': 'swift'}
 
 " colorschemes
 Plug 'NLKNguyen/papercolor-theme' "using it for the airline prompt
@@ -151,10 +165,6 @@ Plug 'fneu/breezy'
 Plug 'zanglg/nova.vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tyrannicaltoucan/vim-quantum'
-"Plug 'cohlin/vim-colorschemes'
-"Plug 'caglartoklu/ftcolor.vim'
-"Plug 'morhetz/gruvbox'
-"Plug 'google/vim-colorscheme-primary'
 
 
 call plug#end()
@@ -193,15 +203,16 @@ noremap \ ,
 
 " EYE CANDY
 let java_highlight_functions = 1
-colorscheme quantum
+colorscheme neodark
 
 " airline Status stuff
 let g:airline_powerline_fonts=1
-let g:airline_theme='quantum'
-let g:quantum_italics = 1
-let g:quantum_black = 1
+let g:airline_theme='neodark'
+let g:neodark#background='black'
 
 " Ale stuff
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
 let g:ale_sign_error = "\u2717"
 let g:ale_sign_warning = "\u26A0"
 
@@ -214,6 +225,29 @@ let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
 " deoplte-clang stuff
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-4.0.so.1'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.0/'
+
+"Android stuff
+let g:android_sdk_path = '/home/kitso/android-sdk-linux'
+let g:gradle_path = '/opt/android-studio/gradle/gradle-2.14.1/bin/gradle'
+let g:gradle_glyph_error=''
+let g:gradle_glyph_warning=''
+let g:gradle_glyph_gradle=''
+let g:gradle_glyph_android=''
+let g:gradle_glyph_building=''
+
+" Matlab and Octave stuff
+let g:matlab_server_launcher = 'tmux' "launch the server in a tmux split
+let g:matlab_auto_mappings = 0 "automatic mappings disabled
+let g:matlab_server_split = 'vertical' "launch the server in a vertical split
+
+" Vim-Plug stuff
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 
 " do not use arrows in normal mode
 noremap <down> <Nop>
@@ -308,3 +342,4 @@ autocmd CompleteDone * pclose
 " CSS & HTML autocompletion
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+

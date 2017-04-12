@@ -1,7 +1,7 @@
-# ~/.tmuxinator/itachi.yml
+# ~/.tmuxinator/bleach.yml
 
 name: bleach
-root: ~/.gitClones/spy_quest
+root: ~/bin/py_source/quiz
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,7 +10,7 @@ root: ~/.gitClones/spy_quest
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: workon infiniti
+pre_window: pyenv shell 3.6.0
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -31,9 +31,6 @@ windows:
   - canvas:
       layout: main-vertical
       panes:
-        - # nvim
-        - # rails
-  - htmlCanvas: cd templates
-  - scssCanvas: cd static/scss
-  - jsCanvas: cd static/js
-  - rails:
+        - nvim
+  - run: main-vertical 
+  - build: main-vertical 

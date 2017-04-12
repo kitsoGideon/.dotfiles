@@ -112,22 +112,24 @@ export PATH="$PYENV_ROOT/bin:$PATH:"
 
 eval "$(pyenv init -)"
 
-export GOROOT=/opt/go
-export PATH=$PATH:$GOROOT/bin
-export GOBIN=$GOROOT/bin
+export GOPATH="$HOME/bin/go_source"
 export GOARCH=amd64
 export GOOS=linux
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 # Adjust the paths!
 export ANDROIDSDK="$HOME/android-sdk-linux"
-export ANDROIDNDK="$HOME/android-ndk-r13b"
+export ANDROIDNDK="$HOME/android-ndk-r14"
 export ANDROIDAPI="24"  # Minimum API version your application require
-export ANDROIDNDKVER="r13b"  # Version of the NDK you installed
+export ANDROIDNDKVER="r14"  # Version of the NDK you installed
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /opt/ros/kinetic/setup.zsh
 
-# OPAM configuration
-. /home/kitso/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+[[ -s "/home/kitso/.gvm/scripts/gvm" ]] && source "/home/kitso/.gvm/scripts/gvm"

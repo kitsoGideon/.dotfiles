@@ -1,7 +1,7 @@
 # ~/.tmuxinator/blackPearl.yml
 
 name: blackPearl
-root: ~/.gitClones/black_pearl
+root: ~/bin/webdev
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,7 +10,7 @@ root: ~/.gitClones/black_pearl
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-pre_window: workon kivy
+pre_window: pyenv shell 3.5.3
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -28,14 +28,9 @@ pre_window: workon kivy
 # post: tmux -CC attach -t blackPearl
 
 windows:
-  - worksheet1:
-      layout: main-vertical
+  - BackEnd:
       panes:
-        - # vim
-        - # guard
-  - worksheet2:
-      layout: main-vertical
-      panes:
-        - # vim
-        - # guard
-  - worksheet3:
+        - nvim
+  - Database:
+  - Style:
+  - server:

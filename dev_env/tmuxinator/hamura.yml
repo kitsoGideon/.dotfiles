@@ -28,18 +28,8 @@ root: ~/bin/go_source
 # post: tmux -CC attach -t pyflask
 
 windows:
-  - server editor:
-      layout: main-vertical
-      panes:
-        - #vim
-        - #guard
   - client editor:
-      layout: main-vertical
       panes:
-        - #vim
-        - #guard
+        - nvim
+  - server editor:
   - server:
-      layout: main-vertical
-      panes:
-        - #vim
-        - #guard

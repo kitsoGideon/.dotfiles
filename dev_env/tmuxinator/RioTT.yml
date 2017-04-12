@@ -1,7 +1,7 @@
 # ~/.tmuxinator/RioTT.yml
 
 name: RioTT
-root: ~/.riot/
+root: ~/bin/webdev/codeJammers
 
 # Optional tmux socket
 # socket_name: foo
@@ -10,7 +10,7 @@ root: ~/.riot/
 # pre: sudo /etc/rc.d/mysqld start
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
+pre_window: pyenv shell 3.5.3
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -28,11 +28,10 @@ root: ~/.riot/
 # post: tmux -CC attach -t RioTT
 
 windows:
-  - editor:
-      layout: main-horizontal
-      panes:
-        - # nvim
-        - # zsh
-        - # bash
-  - ipython: /var/mypython/bin/ipython
-  - fileManager: mc
+  - canvas:
+        - nvim
+  - scss server:
+  - flask server:
+        - export FLASK_APP=/home/kitso/bin/webdev/codeJammers/web_jam.py
+        - export FLASK_DEBUG=1
+        - flask run
