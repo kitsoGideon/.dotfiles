@@ -120,9 +120,13 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Adjust the paths!
 export ANDROIDSDK="$HOME/android-sdk-linux"
-export ANDROIDNDK="$HOME/android-ndk-r14"
-export ANDROIDAPI="24"  # Minimum API version your application require
-export ANDROIDNDKVER="r14"  # Version of the NDK you installed
+export ANDROIDNDK="$HOME/android-ndk-r15"
+export ANDROIDAPI="25"  # Minimum API version your application require
+export ANDROIDNDKVER="r15"  # Version of the NDK you installed
+
+export QT_DIR=/opt/Qt5.8.0
+export PATH=$QTDIR/bin:$PATH
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -133,3 +137,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 [[ -s "/home/kitso/.gvm/scripts/gvm" ]] && source "/home/kitso/.gvm/scripts/gvm"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/kitso/.sdkman"
+[[ -s "/home/kitso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kitso/.sdkman/bin/sdkman-init.sh"

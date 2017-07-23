@@ -61,7 +61,9 @@ call plug#begin('~/.nvim/bundle/')
 " Refer to |:Plug-examples|.
 "
 " Utility
+Plug 'floobits/floobits-neovim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'udalov/kotlin-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'csexton/snipmate.vim'
 Plug 'tpope/vim-surround'
@@ -72,12 +74,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'roxma/vim-tmux-clipboard'
-Plug 'janko-m/vim-test', {'for': ['go', 'rb']}
+"Plug 'janko-m/vim-test', {'for': ['go', 'rb']}
 Plug 'sjl/splice.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'thinca/vim-quickrun'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mattn/sonictemplate-vim'
+        
+"Plug 'vim-syntastic/syntastic'
 " binary files
 Plug 'Shougo/vinarise.vim'
 let g:vinarise_enable_auto_detect=1
@@ -113,19 +117,20 @@ Plug 'jplaut/vim-arduino-ino', {'for': 'ino'}
 " webdev stuff
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss', 'html', 'jinja'] }
 Plug 'coot/html5-syntax.vim', { 'for': ['css', 'scss', 'html'] }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'html', 'jinja'] }
-Plug 'michalliu/jsruntime.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
-Plug 'michalliu/jsoncodecs.vim', { 'for': ['javascript', 'html', 'jinja', 'css', 'scss', 'json'] }
+Plug 'pangloss/vim-javascript', { 'for': ['js', 'html', 'jinja'] }
+Plug 'michalliu/jsruntime.vim', { 'for': ['js', 'html', 'jinja', 'css', 'scss', 'json'] }
+Plug 'michalliu/jsoncodecs.vim', { 'for': ['js', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
 Plug 'rstacruz/sparkup'
-Plug 'webdesus/polymer-ide.vim', {'for': ['html', 'md', 'jinja'], 'do': 'npm install'}
+Plug 'yosssi/vim-ace', {'for': 'ace'}
+"Plug 'webdesus/polymer-ide.vim', {'for': ['html', 'md', 'jinja'], 'do': 'npm install'}
 
 " java tools
 Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java', 'xml'] }
 Plug 'hsanson/vim-android', {'for': ['java', 'xml']}
 
 " javascript
-Plug 'carlitux/deoplete-ternjs', { 'for': 'js', 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['js', 'html', 'ace', 'jinja'], 'do': 'npm install -g tern' }
 
 " Markdown
 Plug 'neovim/node-host', {  'for': 'md', 'do': 'npm install'}
@@ -149,8 +154,10 @@ Plug 'alessandroyorba/sidonia'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'zefei/vim-colortuner'
+Plug 'joshdick/onedark.vim'
 
 " Matlab and Octave
 Plug 'daeyun/vim-matlab', {'for': 'm', 'do': ':UpdateRemotePlugins'}
@@ -177,8 +184,8 @@ set encoding=utf-8     " Necessary to show unicode glyphs
 set laststatus=2       " Always show the statusline
 set showtabline=2      " Alway show the tabline, even if there is only one tab
 set noshowmode         " Hide the default mode text (e.g -- INSERT -- below the statusline)
-set list
-set listchars=tab:ᐅ\ ,eol:𐒇
+"set list
+"set listchars=tab:ᐅ\ ,eol:𐒇
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)ྲ
 set ruler              " show the cursor position all the time
@@ -211,24 +218,29 @@ let g:airline_theme='neodark'
 let g:neodark#background='black'
 
 " Ale stuff
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 1
 let g:ale_lint_on_save = 1
 let g:ale_sign_error = "\u2717"
 let g:ale_sign_warning = "\u26A0"
 
 let g:tagbar_width = 35
-let g:NERDTreeWinSize = 25
+
 
 " vim-go stuff
 let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
+let g:go_highlight_extra_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
 
 " deoplte-clang stuff
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-4.0.so.1'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.0/'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.1'
 
 "Android stuff
 let g:android_sdk_path = '/home/kitso/android-sdk-linux'
-let g:gradle_path = '/opt/android-studio/gradle/gradle-2.14.1/bin/gradle'
+let g:gradle_path = '/opt/android-studio/gradle/gradle-3.2/bin/gradle'
 let g:gradle_glyph_error=''
 let g:gradle_glyph_warning=''
 let g:gradle_glyph_gradle=''
@@ -266,9 +278,6 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " set backup directory
 set bdir=/home/kitso/.local/share/nvim/backup
 
-" run python code from vim
-map <f5> :w <CR>!clear <CR>:!python % <CR>
-
 " easy split navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -281,14 +290,18 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup = 1
 " show current file in NerdTree
 map <silent> <C-s> :NERDTree<CR><C-w>p:NERDTreeFind<CR>
+let g:NERDTreeWinSize = 25
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 
 " reselect visual block after indentation
 vnoremap < <gv
 vnoremap > >gv
 
 " absolute line numbers in insert mode, relative otherwise for easy movement
-au InsertEnter * :set nu
-au InsertLeave * :set rnu
+au InsertEnter * :set rnu
+au InsertLeave * :set nu
 
 " spelling
 "set spell spelllang=en_us
@@ -314,14 +327,13 @@ map <leader>l <esc>:tabnext<CR>
 map <leader>h <esc>:tabprevious<CR>
 
 
-imap <leader>' ''<ESC>
-imap <leader>" ""<ESC>i
-imap <leader>( ()<ESC>i
-imap <leader>[ []<ESC>i
-imap <leader>{ {}<ESC>i
-imap <leader>% %%<ESC>i
+"imap <leader>' ''<ESC>
+"imap <leader>" ""<ESC>i
+"imap <leader>( ()<ESC>i
+"imap <leader>[ []<ESC>i
+"imap <leader>{ {}<ESC>i
+"imap <leader>% %%<ESC>i
 
-nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <CR>
 nmap <F8> :TagbarToggle<CR>
 
 " new line above or below and get out of insert mode
@@ -336,10 +348,3 @@ vnoremap gv gui<ESC>
 
 " vim-jedi stuff
 autocmd CompleteDone * pclose
-
-"" pydiction stuff
-"let g:pydiction_location = '/home/kitso/.nvim/bundle/Pydiction/complete-dict'
-" CSS & HTML autocompletion
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-
