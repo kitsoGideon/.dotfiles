@@ -22,7 +22,7 @@ syntax on
 " Put these in an autocmd group, so that we can delete them easily.
 
 let g:python_host_prog='/usr/bin/python2.7'
-let g:python3_host_prog='/home/kitso/.pyenv/versions/3.6.0/bin/python'
+let g:python3_host_prog='/home/kitso/.pyenv/versions/3.6.2/bin/python'
 
 augroup.vimrcEx
   autocmd!
@@ -61,10 +61,10 @@ call plug#begin('~/.nvim/bundle/')
 " Refer to |:Plug-examples|.
 "
 " Utility
-Plug 'floobits/floobits-neovim'
+"Plug 'floobits/floobits-neovim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'udalov/kotlin-vim'
 Plug 'easymotion/vim-easymotion'
+"Plug 'udalov/kotlin-vim'
 Plug 'csexton/snipmate.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/taglist.vim'
@@ -75,11 +75,11 @@ Plug 'ekalinin/Dockerfile.vim', {'for': 'dockerfile'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'roxma/vim-tmux-clipboard'
 "Plug 'janko-m/vim-test', {'for': ['go', 'rb']}
-Plug 'sjl/splice.vim'
+"Plug 'sjl/splice.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'thinca/vim-quickrun'
+"Plug 'thinca/vim-quickrun'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'mattn/sonictemplate-vim'
+"Plug 'mattn/sonictemplate-vim'
         
 "Plug 'vim-syntastic/syntastic'
 " binary files
@@ -90,14 +90,14 @@ let g:vinarise_enable_auto_detect=1
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
-Plug 'wokalski/autocomplete-flow'
+"Plug 'wokalski/autocomplete-flow'
 " For func argument completion
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet-snippets'
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
-let g:neosnippet#enable_completed_snippet = 1
+"let g:neosnippet#enable_completed_snippet = 1
 
 " Git stuff
 Plug 'jreybert/vimagit'
@@ -121,7 +121,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['js', 'html', 'jinja'] }
 Plug 'michalliu/jsruntime.vim', { 'for': ['js', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'michalliu/jsoncodecs.vim', { 'for': ['js', 'html', 'jinja', 'css', 'scss', 'json'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['html', 'md', 'jinja'] }
-Plug 'rstacruz/sparkup'
+"Plug 'rstacruz/sparkup'
 Plug 'yosssi/vim-ace', {'for': 'ace'}
 "Plug 'webdesus/polymer-ide.vim', {'for': ['html', 'md', 'jinja'], 'do': 'npm install'}
 
@@ -130,11 +130,11 @@ Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java', 'xml'] }
 Plug 'hsanson/vim-android', {'for': ['java', 'xml']}
 
 " javascript
-Plug 'carlitux/deoplete-ternjs', { 'for': ['js', 'html', 'ace', 'jinja'], 'do': 'npm install -g tern' }
+"Plug 'carlitux/deoplete-ternjs', { 'for': ['js', 'html', 'ace', 'jinja'], 'do': 'npm install -g tern' }
 
 " Markdown
-Plug 'neovim/node-host', {  'for': 'md', 'do': 'npm install'}
-Plug 'vimlab/mdown.vim', {  'for': 'md', 'do': 'npm install'}
+"Plug 'neovim/node-host', {  'for': 'md', 'do': 'npm install'}
+"Plug 'vimlab/mdown.vim', {  'for': 'md', 'do': 'npm install'}
 
 
 " GO tools
@@ -150,28 +150,29 @@ Plug 'Shougo/neoinclude.vim', {'for': ['h', 'hpp', 'hxx']}
 " Eyecandy
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-Plug 'alessandroyorba/sidonia'
+"Plug 'alessandroyorba/sidonia'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
-Plug 'zefei/vim-colortuner'
-Plug 'joshdick/onedark.vim'
+"Plug 'zefei/vim-colortuner'
+"Plug 'joshdick/onedark.vim'
+"Plug 'trusktr/seti.vim'
 
 " Matlab and Octave
 Plug 'daeyun/vim-matlab', {'for': 'm', 'do': ':UpdateRemotePlugins'}
 
 " swift
-Plug 'apple/swift', {'for': 'swift'}
-Plug 'keith/swift', {'for': 'swift'}
+"Plug 'apple/swift', {'for': 'swift'}
+"Plug 'keith/swift', {'for': 'swift'}
 
 " colorschemes
 Plug 'NLKNguyen/papercolor-theme' "using it for the airline prompt
-Plug 'fneu/breezy'
-Plug 'zanglg/nova.vim'
+"Plug 'fneu/breezy'
+"Plug 'zanglg/nova.vim'
 Plug 'KeitaNakamura/neodark.vim'
-Plug 'tyrannicaltoucan/vim-quantum'
+"Plug 'tyrannicaltoucan/vim-quantum'
 
 
 call plug#end()
@@ -213,7 +214,7 @@ let java_highlight_functions = 1
 colorscheme neodark
 
 " airline Status stuff
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline_theme='neodark'
 let g:neodark#background='black'
 
@@ -239,18 +240,18 @@ let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang
 let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.1'
 
 "Android stuff
-let g:android_sdk_path = '/home/kitso/android-sdk-linux'
-let g:gradle_path = '/opt/android-studio/gradle/gradle-3.2/bin/gradle'
-let g:gradle_glyph_error=''
-let g:gradle_glyph_warning=''
-let g:gradle_glyph_gradle=''
-let g:gradle_glyph_android=''
-let g:gradle_glyph_building=''
+"let g:android_sdk_path = '/home/kitso/android-sdk-linux'
+"let g:gradle_path = '/opt/android-studio/gradle/gradle-3.2/bin/gradle'
+"let g:gradle_glyph_error=''
+"let g:gradle_glyph_warning=''
+"let g:gradle_glyph_gradle=''
+"let g:gradle_glyph_android=''
+"let g:gradle_glyph_building=''
 
 " Matlab and Octave stuff
-let g:matlab_server_launcher = 'tmux' "launch the server in a tmux split
-let g:matlab_auto_mappings = 0 "automatic mappings disabled
-let g:matlab_server_split = 'vertical' "launch the server in a vertical split
+"let g:matlab_server_launcher = 'tmux' "launch the server in a tmux split
+"let g:matlab_auto_mappings = 0 "automatic mappings disabled
+"let g:matlab_server_split = 'vertical' "launch the server in a vertical split
 
 " Vim-Plug stuff
 let g:go_highlight_functions = 1
@@ -266,6 +267,11 @@ noremap <down> <Nop>
 noremap <left> <Nop>
 noremap <right> <Nop>
 noremap <up> <Nop>
+" do not use arrows in insert mode
+inoremap <down> <Nop>
+inoremap <left> <Nop>
+inoremap <right> <Nop>
+inoremap <up> <Nop>
 "do not use arrows in visual mode
 vnoremap <down> <Nop>
 vnoremap <left> <Nop>
@@ -283,6 +289,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
 au VimResized * exe "normal! \<c-w>="
 
 " NERDTree Toggle
@@ -325,14 +332,6 @@ inoremap <C-x> <Esc>:wq<cr> " save in insert mode and exit
 " tabs
 map <leader>l <esc>:tabnext<CR>
 map <leader>h <esc>:tabprevious<CR>
-
-
-"imap <leader>' ''<ESC>
-"imap <leader>" ""<ESC>i
-"imap <leader>( ()<ESC>i
-"imap <leader>[ []<ESC>i
-"imap <leader>{ {}<ESC>i
-"imap <leader>% %%<ESC>i
 
 nmap <F8> :TagbarToggle<CR>
 
