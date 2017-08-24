@@ -156,6 +156,7 @@ Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeTabsToggle'] }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'zefei/vim-colortuner'
 "Plug 'joshdick/onedark.vim'
 "Plug 'trusktr/seti.vim'
@@ -214,9 +215,12 @@ let java_highlight_functions = 1
 colorscheme neodark
 
 " airline Status stuff
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts=1
 let g:airline_theme='neodark'
 let g:neodark#background='black'
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 " Ale stuff
 let g:ale_lint_on_text_changed = 1
@@ -228,10 +232,11 @@ let g:tagbar_width = 35
 
 
 " vim-go stuff
-let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
+"let g:go_list_type = "quickfix" " avoids conflicts with syntatstic
 let g:go_highlight_extra_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_fmt_autosave = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 
