@@ -128,6 +128,8 @@ Plug 'yosssi/vim-ace', {'for': 'ace'}
 " java tools
 Plug 'artur-shaik/vim-javacomplete2', { 'for': ['java', 'xml'] }
 Plug 'hsanson/vim-android', {'for': ['java', 'xml']}
+"Plug 'padawan-php/deoplete-padawan', { 'for': 'php', 'do': 'composer install'}
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
 
 " javascript
 "Plug 'carlitux/deoplete-ternjs', { 'for': ['js', 'html', 'ace', 'jinja'], 'do': 'npm install -g tern' }
@@ -236,13 +238,14 @@ let g:tagbar_width = 35
 let g:go_highlight_extra_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
+let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 
 " deoplte-clang stuff
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-4.0.so.1'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.1'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/x86_64-linux-gnu/libclang-6.0.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-6.0/lib/clang/6.0.0'
 
 "Android stuff
 "let g:android_sdk_path = '/home/kitso/android-sdk-linux'
@@ -258,7 +261,7 @@ let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-4.0/lib/clang/4.0.1'
 "let g:matlab_auto_mappings = 0 "automatic mappings disabled
 "let g:matlab_server_split = 'vertical' "launch the server in a vertical split
 
-" Vim-Plug stuff
+" Vim-go stuff
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
