@@ -120,23 +120,23 @@ export PATH="$PATH:$GOPATH/bin"
 #export ANDROIDAPI="25"  # Minimum API version your application require
 #export ANDROIDNDKVER="r15"  # Version of the NDK you installed
 
-export QT_DIR=/opt/Qt5.9.1
-export PATH=$QTDIR/bin:$PATH
-export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+#export QT_DIR=/opt/Qt5.9.1
+#export PATH=$QTDIR/bin:$PATH
+#export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /opt/ros/kinetic/setup.zsh
+#source /opt/ros/kinetic/setup.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
-[[ -s "/home/kitso/.gvm/scripts/gvm" ]] && source "/home/kitso/.gvm/scripts/gvm"
+#[[ -s "/home/kitso/.gvm/scripts/gvm" ]] && source "/home/kitso/.gvm/scripts/gvm"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/kitso/.sdkman"
-[[ -s "/home/kitso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kitso/.sdkman/bin/sdkman-init.sh"
-source ~/catskin_ws/devel/setup.zsh
+#export SDKMAN_DIR="/home/kitso/.sdkman"
+#[[ -s "/home/kitso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/kitso/.sdkman/bin/sdkman-init.sh"
+#source ~/catskin_ws/devel/setup.zsh
 
 eval "$(pyenv init -)"
